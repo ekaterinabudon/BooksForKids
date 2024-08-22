@@ -22,8 +22,7 @@ const RegistrationPage = ({
   }
 }) => {
   const { lang, translations } = useLang()
-  const { register, errors, handleSubmit } =
-    useAuthForm(handleSignUp)
+  const { register, errors, handleSubmit } = useAuthForm(handleSignUp)
 
   const submitForm = (data: IAmInput) =>
     handleSignUp({
