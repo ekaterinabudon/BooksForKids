@@ -48,3 +48,15 @@ export interface IAmBurgerLinkItemProps {
     href: string
   }
 }
+
+export interface BlogCardProps {
+  item: {
+    _id: string
+    collection: string
+    date: string
+    title: string
+    description: string
+    images: string[]
+    errorMessage?: string
+  }
+}

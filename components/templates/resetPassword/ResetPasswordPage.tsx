@@ -15,7 +15,7 @@ const ResetPasswordPage = () => {
                 <div className={styles.reset_password_page_container}>
                     <h1>{translations[lang].auth_popup.forgot_password}</h1>
                     <h3>{translations[lang].other.if_you_forgot_password}</h3>
-                    <EmailInput register={register} errors={errors} />
+                    {/* <EmailInput register={register} errors={errors} /> */}
                     <button
                         onClick={() => {}}
                         className={`black_btn uppercese ${styles.reset_password_btn}`}

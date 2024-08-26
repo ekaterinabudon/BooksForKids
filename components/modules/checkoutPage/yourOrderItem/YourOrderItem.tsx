@@ -1,7 +1,7 @@
 import { useCartItemAction } from '@/hooks/useCartItemAction'
 import { formatPrice } from '@/lib/utils/common'
 import styles from '@/styles/orderInfoBlock/index.module.css'
-import { CartItem } from '@/hooks/api/useCart'
+import { CartItem } from '@/types/cart'
 
 const YourOrderItem = ({ item }: { item: CartItem }) => {
   const { count } = useCartItemAction(item)

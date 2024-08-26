@@ -166,7 +166,7 @@
 
   .card_cart_item_content_right {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     color: var(--color-Dark-gray);
     position: absolute;
     bottom: 0;
@@ -179,7 +179,7 @@
   
   .card_cart_item_counter {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
     width: 66px;
     padding: 4px 8px 0 8px;

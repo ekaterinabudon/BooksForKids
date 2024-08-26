@@ -108,8 +108,8 @@
     position: absolute;
     top: 0;
     transition: background-color .2s ease-in-out;
-    -webkit-mask: url(@/public/img/icons/arrow_next_prev.svg) no-repeat 100% 50%;
-    mask: url(@/public/img/icons/arrow_next_prev.svg) no-repeat 100% 50%;
+    -webkit-mask: url(../../public/img/icons/arrow_next_prev.svg) no-repeat 100% 50%;
+    mask: url(../../public/img/icons/arrow_next_prev.svg) no-repeat 100% 50%;
 }
 
 .catalog_bottom_list_prev a:hover,

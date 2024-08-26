@@ -27,3 +27,9 @@ export interface IAmBaseEffectProps {
 }
 
 export type UseGoodsByAuth<T> = StoreWritable<T>
+
+export interface BurgerItem {
+  id: number
+  href: string
+  text: string
+}

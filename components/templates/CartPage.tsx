@@ -11,13 +11,13 @@ import Link from 'next/link'
 import EmptyPageContent from '@/components/modules/emptyPageContent/EmptyPageContent'
 import { useUnit } from 'effector-react'
 import { useCart } from '@/hooks/api/useCart'
-import { $shouldShowEmpty } from '@/context/cart/state'
+// import { $shouldShowEmpty } from '@/context/cart/state'
 
 const CartPage = () => {
   const { data: cart } = useCart()
   const { lang, translations } = useLang()
   const { newTotal } = useTotalPrice()
-  const shouldShowEmpty = useUnit($shouldShowEmpty)
+  // const shouldShowEmpty = useUnit($shouldShowEmpty)
 
   function setIsCorrectCouponCode(): void {
     throw new Error('Function not implemented.')
@@ -25,7 +25,7 @@ const CartPage = () => {
   console.log(newTotal)
   return (
     <main>
-      {!shouldShowEmpty ? (
+      {cart?.length ? (
         <section className={styles.shopping_cart}>
           <div className={`container ${styles.shopping_cart_container}`}>
             <h1>{translations[lang].other.shopping_cart}</h1>

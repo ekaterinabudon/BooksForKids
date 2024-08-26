@@ -24,7 +24,7 @@
         /* font-weight: 400; */
         margin-top: 24px;
         margin-bottom: 24px;
-        text-align: start;
+        text-align: flex-start;
     }
 }
 
@@ -42,7 +42,7 @@
 
 @media (max-width: 570px) {
     .checkout_content {
-        align-items: start;
+        align-items: flex-start;
     }
 }
 
@@ -192,7 +192,7 @@
 
 .order_checkbox_frame {
     cursor: pointer;
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     background-color: transparent;
     border: 1px solid var(--color-Dark-gray);
     border-radius: 4px;
@@ -375,14 +375,14 @@ input:checked + .order_checkbox_mark {
     border-bottom: 1px solid var(--color-Light-gray);
 }
 
-textarea:focus, input:focus
+/* textarea:focus, input:focus
 {
   outline: none;
 }
 
 textarea:focus {
     border-bottom: 1px solid var(--color-Light-gray);
-}
+} */
 
 /* end textarea */
 

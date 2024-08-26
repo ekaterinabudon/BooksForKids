@@ -193,7 +193,7 @@
   /* Icons Block */
 .modal_right_icon_container {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 38px;
 }
 

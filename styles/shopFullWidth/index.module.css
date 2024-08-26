@@ -23,7 +23,7 @@
 @media (max-width: 800px) {
     .fullwidth_filter_block {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
         margin-bottom: 16px;
     }
 }
@@ -108,12 +108,12 @@
     overflow-x: auto;
     margin-top: 96px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 @media (max-width: 1220px) {
     .page_pagination_container {
-        justify-content: start;
+        justify-content: flex-start;
   }
 }
 
@@ -170,13 +170,13 @@
     width: 70px;
     height: 40px;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 @media (max-width: 800px) {
     .catalog_filter_btn {
-        justify-content: start;
+        justify-content: flex-start;
         width: 60px;
         padding-left: 26px;
         height: 35px;
@@ -193,7 +193,9 @@
     position: absolute;
     bottom: -8px;
     transition: background-color .2s ease-in-out;
-    -webkit-mask: url(@/public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%;
-    mask: url(@/public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%;
+    -webkit-mask: url(../../public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%;
+    mask: url(../../public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%;
+    /* -webkit-mask: url(@/public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%;
+    mask: url(@/public/img/icons/filter_btn_mob.svg) no-repeat 50% 50%; */
   }
 }

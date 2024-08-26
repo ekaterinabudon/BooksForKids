@@ -243,6 +243,9 @@
       "checkout": "Checkout",
       "wishlist": "Wishlist"
     },
+    "blog": {
+      "blog": "blog"
+    },
     "validation": {
       "invalid_value": "Invalid value",
       "requiredName": "Enter your name",
@@ -502,6 +505,9 @@
       "cart": "Корзина",
       "checkout": "К оплате покупки",
       "wishlist": "Избранное"
+    },
+    "blog": {
+      "blog": "блог"
     },
     "validation": {
       "invalid_value": "Недопустимое значение",

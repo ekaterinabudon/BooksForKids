@@ -67,10 +67,11 @@ const Burger = () => {
             onClick={handleCloseBurger}
             /> */}
             <ul className='nav_burger_list'>
-              {burgerLinks.map((item) => (
+              {burgerLinks
+              .filter(Boolean).map((item) => (
                   <BurgerLinkItem
-                      key={item.text}
-                      item={item}
+                      key={item!.text}
+                      item={item!}
                   />
               ))}
             </ul>

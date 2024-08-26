@@ -4,7 +4,7 @@
     display: flex;
     padding-top: 96px;
     width: 100%;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   @media (max-width: 925px) {
@@ -237,7 +237,7 @@
     .wishlist_item_title h5 {
         height: auto;
         width: auto;
-        align-items: start;
+        align-items: flex-start;
     }
 
     .wishlist_btn_quick_buy,

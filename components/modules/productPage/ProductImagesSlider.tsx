@@ -36,10 +36,10 @@ const ProductImagesSlider = () => {
     let sliderRef1 = useRef<Slider | null>(null);
     let sliderRef2 = useRef<Slider | null>(null);
   
-    useEffect(() => {
-      setNav1(sliderRef1);
-      setNav2(sliderRef2);
-    }, []);
+    // useEffect(() => {
+    //   setNav1(sliderRef1);
+    //   setNav2(sliderRef2);
+    // }, []);
 
   return (
     <>
@@ -48,8 +48,8 @@ const ProductImagesSlider = () => {
           <Slider
             infinite={false}
             vertical={true}
-            ProductImagesSlider={nav1}
-            ref={(slider) => (sliderRef2 = slider)}
+            // ProductImagesSlider={nav1}
+            // ref={(slider) => (sliderRef2 = slider)}
             slidesToShow={4}
             swipeToSlide={true}
             slidesToScroll={1}
@@ -65,8 +65,8 @@ const ProductImagesSlider = () => {
             ))}
           </Slider>
           <Slider
-            ProductImagesSlider={nav2}
-            ref={slider => (sliderRef1 = slider)}
+            // ProductImagesSlider={nav2}
+            // ref={slider => (sliderRef1 = slider)}
             slidesToShow={1}
             slidesToScroll={1}
             arrows={false}

@@ -124,7 +124,7 @@
   /* Icons Block */
 .product_top_right_icon_container {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   margin-bottom: 38px;
 }
 
@@ -477,7 +477,7 @@
 
 @media (max-width: 520px) {
   .similar_top {
-    justify-content: start;
+    justify-content: flex-start;
     margin-bottom: 14px;
     margin-top: 24px;
   }
