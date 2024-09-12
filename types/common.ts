@@ -8,7 +8,7 @@ export interface IAmProduct {
   collection: string
   price: number
   name: string
-  authors: string
+  // authors: string
   description: string
   characteristics: { [index: string]: string }
   images: string[]
@@ -33,3 +33,4 @@ export interface BurgerItem {
   href: string
   text: string
 }
+

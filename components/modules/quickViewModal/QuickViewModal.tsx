@@ -22,8 +22,6 @@ const QuickViewModal = () => {
   const { product, allCurrentCartItemCount, setCount, existingItem, count } =
     useCartAction()
   const images = useProductImages(product)
-  // const { handleAddProductToFavorites, isProductInFavorites } =
-  //   useFavoritesAction(product)
 
   const { data: favorites } = useFavorites()
   const isProductInFavorites = isItemInListOfFavorites(favorites, product._id)

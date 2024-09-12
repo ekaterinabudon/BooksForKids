@@ -24,6 +24,7 @@ const syncCart = async (db: Db, user: WithId<Document>, userId: string) => {
       isDiscount: 1,
       category: 1,
       count: 1,
+      characteristics:1,
     })
     .toArray()
 

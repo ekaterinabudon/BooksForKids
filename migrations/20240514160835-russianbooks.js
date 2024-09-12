@@ -17,10 +17,16 @@ const images = [
   '/img/russianbooks/vladis_1_readMyself.png', 
 ]
 
+const size = [
+  '2000',
+  '1100',
+  '2200',
+]
+
 // const weight = [
-//   '125',
-//   '80',
-//   '225',
+//   125,
+//   80,
+//   225,
 // ]
 
 const features = [
@@ -53,7 +59,11 @@ module.exports = {
       collection: collections[0],
       author: getRandomArrayValue(authors),
       images: getRandomArrayValue(images),
-      features: faker.datatype.boolean(),
+      features: getRandomArrayValue(features),
+      weight: +faker.string.numeric(3),
+      size: getRandomArrayValue(size),
+      pages: +faker.string.numeric(2),
+      year: +faker.string.numeric(4),
     },
     {
       type: 'readMyself',
@@ -63,7 +73,11 @@ module.exports = {
       collection: collections[0],
       author: getRandomArrayValue(authors),
       images: getRandomArrayValue(images),
-      features: faker.datatype.boolean(),
+      features: getRandomArrayValue(features),
+      weight: +faker.string.numeric(3),
+      size: getRandomArrayValue(size),
+      pages: +faker.string.numeric(2),
+      year: +faker.string.numeric(4),
     },
     {
       type: 'bedTimeStories',
@@ -73,7 +87,11 @@ module.exports = {
       collection: collections[0],
       author: getRandomArrayValue(authors),
       images: getRandomArrayValue(images),
-      features: faker.datatype.boolean(),
+      features: getRandomArrayValue(features),
+      weight: +faker.string.numeric(3),
+      size: getRandomArrayValue(size),
+      pages: +faker.string.numeric(2),
+      year: +faker.string.numeric(4),
     }
     ]
 

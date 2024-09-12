@@ -43,7 +43,7 @@ const AddInfoList = ({ product }: { product: IAmProduct }) => {
     {
       id: 8,
       title: translations[lang].product.number_of_pages,
-      text: product.characteristics.number_of_pages,
+      text: product.characteristics.pages,
     },
     {
       id: 9,

@@ -8,8 +8,7 @@ import { CartItem } from '@/types/cart'
 export const useCartAction = () => {
   const product = useUnit($currentProduct)
   const { data: cart } = useCart()
-  const currentCartItems =
-    cart?.filter((item: CartItem) => item.productId === product._id) ?? []
+  const currentCartItems = cart?.filter((item: CartItem) => item.productId === product._id) ?? []
 
   const existingItem = currentCartItems.find(
     (item: CartItem) => item.productId === product._id
@@ -18,7 +17,7 @@ export const useCartAction = () => {
   const [count, setCount] = useState(+(existingItem?.count ?? 1))
 
   const getProductFromCart = (productId: string) =>
-    cart?.find((item: CartItem) => item.productId === productId)
+  cart?.find((item: CartItem) => item.productId === productId)
 
   const getCanAddToCart = (productId: string) => {
     const product = getProductFromCart(productId)

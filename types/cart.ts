@@ -66,9 +66,14 @@ export interface IAmProceedToCheckoutBtnProps {
 export interface CartItem {
   _id: string
   count: number
-  characteristics?: {
-    authors: string[]
-  }
+  type: string
+  collection: string
+  // toArray(): (param: any) => void
+  // characteristics: {
+  //   author: string[]
+  //   weight: number
+  // }
+  characteristics: { [index: string]: string }
   productId: string
   image: string
   name: string

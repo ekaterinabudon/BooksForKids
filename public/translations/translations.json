@@ -155,7 +155,8 @@
       "in_stock": "In stock",
       "out_of_stock": "Out of stock",
       "only_1": "Only 1 left!",
-      "notify_of_delivery": "Notify when in stock",
+      "notify_of_delivery": "Notify when available",
+      "alert_me": "Alert me via email",
       "to_cart": "Add to cart",
       "quick_buy": "Quick buy"
     },
@@ -244,7 +245,8 @@
       "wishlist": "Wishlist"
     },
     "blog": {
-      "blog": "blog"
+      "blog": "blog",
+      "read_more": "Read more"
     },
     "validation": {
       "invalid_value": "Invalid value",
@@ -419,6 +421,7 @@
       "out_of_stock": "Распродано",
       "only_1": "1 шт. в наличии!",
       "notify_of_delivery": "Сообщить о поступлении",
+      "alert_me": "Сообщить на Email",
       "to_cart": "Добавить в корзину",
       "quick_buy": "Быстрая покупка"
     },
@@ -507,7 +510,8 @@
       "wishlist": "Избранное"
     },
     "blog": {
-      "blog": "блог"
+      "blog": "блог",
+      "read_more": "Больше..."
     },
     "validation": {
       "invalid_value": "Недопустимое значение",

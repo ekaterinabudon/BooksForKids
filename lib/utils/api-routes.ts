@@ -4,6 +4,8 @@ import bcrypt from 'bcryptjs'
 import { shuffle } from './common'
 import { NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
+import clientPromise from '../mongodb'
+
 
 export const getDbAndReqBody = async (
   clientPromise: Promise<MongoClient>,
@@ -19,10 +21,19 @@ export const getDbAndReqBody = async (
   return { db }
 }
 
+export const getBlogArticles = async (db: Db) => {
+  const articles = await (await db.collection('articles')
+  .find()
+  .toArray())
+  .flatMap(i=>({...i, ...i.articles[0]}))
+
+  return (articles) 
+}
+
 export const getGoodsForTheHomePage = async (db: Db) => {
   const russianbooks = await db.collection('russianbooks').find().toArray()
 
-  return shuffle([...russianbooks.slice(0, 6)])
+  return shuffle([...russianbooks.slice(0, 6)]) 
 }
 
 export const generateTokens = (name: string, email: string) => {
@@ -171,7 +182,7 @@ export const getDataFromDBByCollection = async (
       price: 1,
       isDiscount: 1,
       category: 1,
-      count: 1,
+      count: 1,characteristics:1,
     })
     .toArray()
 

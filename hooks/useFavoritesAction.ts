@@ -18,7 +18,7 @@ export const useFavoritesAction = (/*product: IAmProduct*/) => {
   const { data: favorites } = useFavorites()
   // const currentFavoritesByAuth = useGoodsByAuth($favorites, $favoritesFromLS)
   const currentFavoritesItems =
-    favorites?.filter((item: FavoriteItem) => item.productId === product._id) ?? []
+  favorites?.filter((item: FavoriteItem) => item.productId === product._id) ?? []
 
   const existingFavoritesItem = currentFavoritesItems.find(
     (item: FavoriteItem) => item.productId === product._id

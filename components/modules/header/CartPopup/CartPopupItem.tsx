@@ -31,7 +31,7 @@ const CartPopupItem = ({ item }: { item: CartItem }) => {
             className='card_cart_item_title'
           >
             <h3>
-              {item.name} | {item.characteristics?.authors}
+              {item.name} | {item.characteristics.author}
             </h3>
           </Link>
           {item.isDiscount ? (

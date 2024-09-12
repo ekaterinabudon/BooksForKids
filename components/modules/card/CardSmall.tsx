@@ -12,7 +12,7 @@ import {
   isItemInListOfFavorites,
 } from '@/lib/utils/common'
 import { setCurrentProduct } from '@/context/goods'
-import { showQuickViewModal } from '@/context/modals'
+import { openNotifyMeModal, showQuickViewModal } from '@/context/modals'
 import AddToCartBtn from '@/components/elements/addToCart/AddToCartBtn'
 import { useCartAction } from '@/hooks/useCartAction'
 // import { useFavoritesAction } from '@/hooks/useFavoritesAction'
@@ -20,6 +20,7 @@ import { setIsAddToFavorites } from '@/context/favorites'
 import styles from '@/styles/cardSmall/index.module.css'
 import { useAddToCart, useCart } from '@/hooks/api/useCart'
 import { useAddToFavorites, useFavorites } from '@/hooks/api/useFavorites'
+import NotifyOfDeliveryBtn from '@/components/elements/notifyOfDelivery/NotifyOfDeliveryBtn'
 
 const SmallCard = ({ item }: IAmCardProps) => {
   const { lang, translations } = useLang()
@@ -31,8 +32,6 @@ const SmallCard = ({ item }: IAmCardProps) => {
 
   const { data: favorites } = useFavorites()
   const isProductInFavorites = isItemInListOfFavorites(favorites, item._id)
-  // const { handleAddProductToFavorites, isProductInFavorites } =
-  //   useFavoritesAction(item)
 
   const addToCart = useAddToCart()
   const addToFavorites = useAddToFavorites()
@@ -49,6 +48,12 @@ const SmallCard = ({ item }: IAmCardProps) => {
     document.location.href = '/cart'
   }
 
+  const handleOpenNotifyMeModal = () => {
+    addOverflowHiddenToBody()
+    openNotifyMeModal()
+    setCurrentProduct(item)
+  }
+  
   return (
     <>
       <li className={styles.list_item}>
@@ -90,8 +95,8 @@ const SmallCard = ({ item }: IAmCardProps) => {
             </div>
           </div>
         </Link>
-        {!isMedia1160 ? (
-          isProductInCart ? (
+        {
+          (+item.inStock && isProductInCart) ? (
             <div className={styles.card_to_cart_btn_container_added}>
               <AddToCartBtn
                 text={
@@ -104,42 +109,47 @@ const SmallCard = ({ item }: IAmCardProps) => {
                 btnDisabled={!getCanAddToCart(item._id)}
               />
             </div>
-          ) : (
-            <div className={styles.card_to_cart_btn_container}>
-              <AddToCartBtn
-                text={
-                  isProductInCart
-                    ? translations[lang].card.in_cart
-                    : translations[lang].card.to_cart
-                }
-                className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
-                handleAddToCart={() => addToCart.mutate(item)}
-                btnDisabled={!getCanAddToCart(item._id)}
-              />
-            </div>
-          )
-        ) : (
-          <div className={styles.card_to_cart_btn_container_small}>
+          ) : (!(+item.inStock) && isProductInCart) ? (
+            <div className={styles.card_to_cart_btn_container_added}>
             <AddToCartBtn
-              text={
-                isProductInCart
-                  ? translations[lang].card.in_cart
-                  : translations[lang].card.to_cart
-              }
+              text={translations[lang].card.in_cart}
               className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
               handleAddToCart={() => addToCart.mutate(item)}
               btnDisabled={!getCanAddToCart(item._id)}
             />
-          </div>
-        )}
+        </div>
+        ) : (!(+item.inStock) && !isProductInCart) ? (
+            <div className={styles.card_to_cart_btn_container_added}>
+              <NotifyOfDeliveryBtn
+                text={translations[lang].wishlist.notify_of_delivery}
+                className={`${styles.card_cart_btn} ${styles.card_cart_btn_added}`}
+                handleNotifyMe={handleOpenNotifyMeModal}
+              />
+            </div>
+          ) : (
+            <div className={styles.card_to_cart_btn_container}>
+              <AddToCartBtn
+              text={translations[lang].card.to_cart}
+              className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
+              handleAddToCart={() => addToCart.mutate(item)}
+              btnDisabled={!getCanAddToCart(item._id)}
+            />
+            </div>
+          )
+         }
         {!isMedia1160 && (
-          // <div className={styles.card_actions_container}>
           <div className={styles.card_actions}>
-            <CardActionBtn
+            {+item.inStock ? <CardActionBtn
               text={translations[lang].card.add_to_cart}
               iconClass='card_action_btn_add_to_cart'
               callback={addAndGoToCartActionBtn}
+            /> :  (
+              <CardActionBtn
+              text={translations[lang].wishlist.notify_of_delivery}
+              iconClass='card_action_btn_add_to_cart'
+              callback={handleOpenNotifyMeModal}
             />
+            )}
             <CardActionBtn
               text={translations[lang].card.quick_view}
               iconClass='card_action_btn_quick_view'
@@ -155,7 +165,6 @@ const SmallCard = ({ item }: IAmCardProps) => {
               callback={() => addToFavorites.mutate(item)}
             />
           </div>
-          // </div>
         )}
       </li>
     </>

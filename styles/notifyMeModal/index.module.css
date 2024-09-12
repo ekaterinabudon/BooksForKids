@@ -1,5 +1,5 @@
 .modal {
-    width: 616px;
+    width: 400px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,9 +11,16 @@
     background: var(--color-White);
     box-shadow: 0px 32px 32px 0px rgba(0, 0, 0, 0.20), 0px 0px 32px 0px rgba(0, 0, 0, 0.10);
     display: flex;
-    padding: 10px 20px 30px 20px;
+    flex-direction: column;
+    padding: 20px 20px 30px 20px;
     min-width: 0;
 }
+
+@media (max-width: 570px) {
+    .modal {
+        width: calc(80vw - 20px);
+      }
+    }
 /* 
 .coupon_modal_container {
     width: 100%;
@@ -66,3 +73,63 @@
         transition: background-color 0.2s ease-in-out;
         background-color: var(--color-Dark-gray);
       }
+
+.modal h4 {
+    margin-bottom: 50px;
+}
+
+@media (max-width: 570px) {
+    .modal h4 {
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+}
+
+.notify_btn {
+    /* width: 168px; */
+    width: 360px;
+    height: 53px;
+    font-weight: 400 !important;
+    background-color: var(--color-Black);
+    color: var(--color-White);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 1px solid var(--color-Black);
+}
+
+.notify_btn:hover {
+    border: 1px solid var(--color-Black);
+    color: var(--color-Black);
+    background-color: var(--color-White);
+    transition: all .2s ease-in-out;
+}
+
+.notify_btn:active {
+    border: 1px solid var(--color-Accent);
+    color: var(--color-Accent);
+    background-color:  var(--color-White);
+    transition: all .2s ease-in-out;
+}
+
+@media (max-width: 1070px) {
+    .notify_btn {
+        width: calc(50vw - 32px);
+      }
+}
+
+@media (max-width: 570px) {
+    .notify_btn {
+        width: 100%;
+        height: 32px;
+        font-size: 12px !important;
+      }
+
+    .notify_btn:active {
+    border: 1px solid var(--color-Black);
+    color: var(--color-Black);
+    background-color:  var(--color-White);
+    }
+}

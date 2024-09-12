@@ -20,27 +20,22 @@ const NotifyMeModal = () => {
     const { register, errors, handleSubmit} =
     useNotifyMeForm(handleNotifyMe)
 
-    // const submitForm = (data: IAmInput) =>
-    // handleNotifyMe({
-    //   phone: data.phone,
-    //   email: data.email,
-    //   name: data.name,
-    // })
+    const submitForm = (data: IAmInput) =>
+    handleNotifyMe({
+      email: data.email,
+    })
 
     return (
           <div className={styles.modal}>
             <button className={styles.modal_close} onClick={handleCloseModal} />
-
-            {/* <form onSubmit={handleSubmit(submitForm)}>
-                <PhoneInput register={register} errors={errors} />
+            <h4>{translations[lang].wishlist.alert_me}</h4>
+            <form onSubmit={handleSubmit(submitForm)}>
                 <EmailInput register={register} errors={errors} />
-                <NameInput register={register} errors={errors} />
-                <div className="submit_btn_container capitralize">
-                    <NotifyOfDeliveryBtn 
-                        text={translations[lang].wishlist.notify_of_delivery} 
-                        handleNotifyMe={handleNotifyMe} />
-                </div>
-            </form> */}
+                <NotifyOfDeliveryBtn 
+                    text={translations[lang].wishlist.notify_of_delivery} 
+                    handleNotifyMe={handleNotifyMe}
+                    className={styles.notify_btn} />
+            </form>
         </div>
     );
 };

@@ -1,0 +1,25 @@
+.card_img_container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.blogcard_date {
+    margin-top: 22px;
+    margin-bottom: 5px;
+    color: var(--color-Dark-gray);
+}
+
+.blogcard_description {
+    color: var(--color-Dark-gray);
+    line-height: 1.8;
+    margin-top: 14px;
+    margin-bottom: 24px;
+}
+
+.read_more_description_btn {
+    color: var(--color-Accent);
+}
+
+.read_more_description_btn:hover {
+    text-decoration: underline;
+}

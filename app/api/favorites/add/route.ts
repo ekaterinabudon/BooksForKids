@@ -44,7 +44,7 @@ export async function POST(req: Request) {
     if (!existingFavoriteItem) {
 
       const newFavoriteItem = {
-        userId: user?._id,
+        userId: user?._id ?? userId,
         productId: productItem._id,
         image: productItem.images[0],
         name: productItem.name,

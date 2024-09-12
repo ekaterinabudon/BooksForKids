@@ -50,13 +50,10 @@ export interface IAmBurgerLinkItemProps {
 }
 
 export interface BlogCardProps {
-  item: {
-    _id: string
-    collection: string
+  blogcard: {
+    title: string;
+    bigimage:string;
+    description:string;
     date: string
-    title: string
-    description: string
-    images: string[]
-    errorMessage?: string
   }
 }

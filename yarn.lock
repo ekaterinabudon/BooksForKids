@@ -2110,6 +2110,11 @@ lodash.once@^4.0.0:
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
   integrity sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==
 
+loops@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/loops/-/loops-3.2.0.tgz#d0fda82949d4f75b10a32c967ff61dcfe1adaf5f"
+  integrity sha512-A/azP4soJLCUdZeb6s8kmaQwEjUTNVsk0DnHRUiPzbYiNtYZt0IP0MA+6GmrlG96Hix0jLc5qTZRDSN6B2rjAQ==
+
 loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"

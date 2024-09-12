@@ -14,11 +14,13 @@ import { useState } from 'react'
 // import { $shouldShowEmpty } from '@/context/cart/state'
 import { useCart } from '@/hooks/api/useCart'
 import CartList from '@/components/modules/cartPage/CartList'
+import { useCalculateShipping } from '@/hooks/useCalculateShipping'
 
 const CartPage = () => {
   const { data: cart, isLoading: isCartLoading } = useCart()
   const { lang, translations } = useLang()
   const { newTotal } = useTotalPrice()
+  const { shippingCost } = useCalculateShipping()
   const { newTotalWithDiscount } = useTotalPriceWithDiscount()
   // const shouldShowEmpty = useUnit($shouldShowEmpty)
   const [isCorrectCouponCode, setIsCorrectCouponCode] = useState(false)
@@ -67,17 +69,17 @@ const CartPage = () => {
                       {translations[lang].cart.shipping}
                     </h5>
                     <h5 className={styles.cart_shipping_calc_container_top_msg}>
-                      {translations[lang].cart.shipping_msg}
+                      {isCartLoading ? '' : `${formatPrice(shippingCost)}`}
                     </h5>
                   </div>
-                  <div className={styles.cart_shipping_calc}>
+                  {/* <div className={styles.cart_shipping_calc}>
                     <CalcShippingBlock />
                     <UpdateTotalsBtn
                       text={translations[lang].cart.update_totals}
                       className='body_large update_totals_btn white_btn'
                       handleUpdateTotals={() => {}}
                     />
-                  </div>
+                  </div> */}
                   <div className={styles.cart_shipping_bottom}>
                     <div className={styles.cart_shipping_bottom_total}>
                       <p className={`body_large`}>
