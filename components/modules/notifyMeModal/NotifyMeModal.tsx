@@ -20,8 +20,8 @@ const NotifyMeModal = () => {
     const { register, errors, handleSubmit} =
     useNotifyMeForm(handleNotifyMe)
 
-    const submitForm = (data: IAmInput) =>
-    handleNotifyMe({
+    const submitForm = (data: IAmInput) => handleNotifyMe({
+        name:data.name,phone:data.phone!,
       email: data.email,
     })
 

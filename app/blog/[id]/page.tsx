@@ -3,7 +3,7 @@ import ArticlePage from '@/components/templates/articlePage/ArticlePage';
 import { db } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
-export const getArticle = async (id:string) => {
+ const getArticle = async (id:string) => {
   const d = await db
   const article = await (await d
     .collection('articles')
