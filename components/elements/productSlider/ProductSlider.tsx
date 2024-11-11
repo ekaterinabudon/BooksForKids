@@ -59,8 +59,8 @@ const ProductSlider = ({
         className={`${styles.slider_swiper} ${styles.product_slider_swiper}`}
         watchOverflow={true}
         // watchSlidesVisibility={true}
-        // watchSlidesProgress={true}
-        // preventInteractionOnTransition={true}
+        watchSlidesProgress={true}
+        preventInteractionOnTransition={true}
         spaceBetween={10}
         scrollbar={{
             draggable: true,

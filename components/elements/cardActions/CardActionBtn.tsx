@@ -6,7 +6,7 @@ const CardActionBtn = ({
   text,
   callback,
   iconClass,
-  withTooltip = true,
+  // withTooltip = true,
 }: IAmCardActionBtnProps) => {
   const [open, setOpen] = useState(false)
   const [tooltipTop, setTooltipTop] = useState(0)

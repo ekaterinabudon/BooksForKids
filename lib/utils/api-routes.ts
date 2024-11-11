@@ -255,3 +255,18 @@ export const deleteProduct = async (
 
   return NextResponse.json({ status: 204, id })
 }
+
+export const createSubscription = async (
+  db: Db,
+  reqBody: { email: string }
+) => {
+  const salt = bcrypt.genSaltSync(10)
+
+  await db.collection('newsletters').insertOne({
+    email: reqBody.email,
+    role: 'user',
+  })
+}
+
+export const findUserByEmailSubscribtion = async (db: Db, email: string) =>
+  db.collection('newsletters').findOne({ email })

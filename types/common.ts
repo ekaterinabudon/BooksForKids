@@ -1,4 +1,5 @@
 import { StoreWritable } from 'effector'
+import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form'
 
 export interface IAmProduct {
   _id: string
@@ -19,6 +20,7 @@ export interface IAmProduct {
   isDiscount: string
   popularity: number
   errorMessage?: string
+  paymentLink: string
 }
 
 export interface IAmBaseEffectProps {
@@ -34,3 +36,15 @@ export interface BurgerItem {
   text: string
 }
 
+export interface InputEmailFooter {
+  email: string
+}
+
+export interface SubscribeFx {
+  email: string
+}
+
+export interface EmailFooterInput {
+  register: UseFormRegister<InputEmailFooter>
+  errors: Partial<FieldErrorsImpl<InputEmailFooter>>
+}

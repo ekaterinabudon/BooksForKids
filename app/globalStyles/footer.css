@@ -39,7 +39,15 @@
 
 .input_wrapper {
     width: 80%;
+    position: relative;
 }
+
+@media (max-width: 750px) {
+  .input_wrapper {
+    bottom: 20px;
+    width: 100%;
+    }
+  }
 
 .email_input {
     display: block;
@@ -74,6 +82,14 @@
    top: -30px;
  }
 
+ @media (max-width: 750px) {
+  .email_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    white-space: pre-line;
+    position: relative;
+    top: -10px;
+  }
+  }
+
  /* Bottom Line */
 
  .line_bottom {
@@ -89,6 +105,27 @@
     bottom: 20px;
     position: absolute;
  }
+
+ @media (max-width: 750px) { 
+    
+  .line_bottom:after {
+   width: 96vw;
+ }
+}
+
+ @media (max-width: 600px) { 
+    
+  .line_bottom:after {
+   width: 94vw;
+ }
+}
+
+@media (max-width: 460px) { 
+    
+  .line_bottom:after {
+   width: 92vw;
+ }
+}
 
  /* Arrow Button */
 
@@ -127,7 +164,7 @@
 .social_media_icons {
     position: relative;
     display: flex;
-    width: 106px;
+    width: 50px;
     transition: color .2s ease-in-out;
     justify-content: space-between;
     margin-right: 18px;
@@ -215,16 +252,7 @@
     }
 
 .get_email {
-    width: 288px;
-    }
-
-.email_input {
-    display: block;
     width: 100%;
-    height: 20px;
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 10px;
     }
 
   .email_input {
@@ -234,21 +262,15 @@
     position: relative;
     padding-top: 37px;
     padding-bottom: 0px;
+    font-size: 12px;
   }
+
+  
 
   .btn_get_email::before {
     -webkit-mask: url(../../public/img/icons/arrow_email_small.svg) no-repeat 50% 50%;
     mask: url(../../public/img/icons/arrow_email_small.svg) no-repeat 50% 50%;
   }
-
-  .line_bottom:after {
-    content: "";
-    width: 288px;
-    height: 1px;
-    background: var(--color-Black);
-    bottom: 25px;
-    position: absolute;
- }
 
     /* Checkbox */
   .input_checkbox_wrapper {
@@ -344,3 +366,4 @@
   }
 
 }
+

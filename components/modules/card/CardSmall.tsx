@@ -70,15 +70,20 @@ const SmallCard = ({ item }: IAmCardProps) => {
           className={styles.card_top_link}
         >
           <div className={styles.card_top_container}>
+          <div className={styles.card_top_piccontainer}>
             <Image
               src={item.images[0]}
               alt={item.name}
               width={500}
               height={500}
             />
+            </div>
           </div>
           <div className={styles.card_bottom_container}>
-            <h3>{item.name}</h3>
+            <h3>
+              {/* {item.name.length < 55 ? item.name : `${item.name?.slice(0,30)}...`} */}
+              {item.name}
+            </h3>
             <div>
               {item.isDiscount ? (
                 <h4>

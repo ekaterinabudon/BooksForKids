@@ -1,3 +1,13 @@
+.blog_card_item_container {
+    width: 450px;
+}
+
+@media (max-width: 980px) {
+    .blog_card_item_container {
+        width: 100%;
+  }
+}
+
 .card_img_container {
     border-radius: 8px;
     overflow: hidden;

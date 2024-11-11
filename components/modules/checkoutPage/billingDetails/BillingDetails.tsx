@@ -12,11 +12,15 @@ import { IAmInput } from '@/types/authPopup';
 const BillingDetails = () => {
     const { lang, translations } = useLang();
     const isAuth = useUnit($isAuth)
-    const [userWantToCreateAccount, setUserWantToCreateAccount] = useState(false)
+    const [userWantToCreateAccount, setUserWantToCreateAccount] = useState(true)
     const [shipToDifferentAddress, setshipToDifferentAddress] = useState(false)
     const checkboxRef = useRef() as MutableRefObject<HTMLInputElement>
     const [messageLength, setMessageLength] = useState(0)
     const { register, trigger, formState: { errors }, } = useForm()
+
+  //   const [activeTab, setActiveTab] = useState<
+  //   'different' | ''
+  // >('')
 
     const nameRegister = register(
         'name_label',
@@ -46,7 +50,9 @@ const BillingDetails = () => {
       const messageRegister = register('message_label', { maxLength: 255 })
 
     const handleCreatingAccountChange = () => setUserWantToCreateAccount(!userWantToCreateAccount)
-    const handleShipToDiffAddressChange = () => setshipToDifferentAddress(!shipToDifferentAddress)
+    const handleShipToDiffAddressChange = () => {
+      setshipToDifferentAddress(!shipToDifferentAddress)
+    } 
 
     const handleTabCheckbox = (e: React.KeyboardEvent<HTMLLabelElement>) => {
         if (e.key == ' ' || e.code == 'Space') {
@@ -326,6 +332,50 @@ const BillingDetails = () => {
                         {translations[lang].checkout.ship_to_different}
                     </span>
                 </label>
+                {shipToDifferentAddress ? 
+                <>
+                <label className={styles.checkout_billing_details_form_label}>
+                    <h5><input 
+                    type='text'
+                    placeholder={translations[lang].billing_form.state}
+                    // name={phoneRegister.name}
+                    // ref={phoneRegister.ref}
+                    className={styles.checkout_billing_details_form_input}
+                    onChange={() => {}}
+                    /></h5>
+                </label>
+                <label className={styles.checkout_billing_details_form_label}>
+                    <h5><input 
+                    type='text'
+                    placeholder={translations[lang].billing_form.street}
+                    // name={phoneRegister.name}
+                    // ref={phoneRegister.ref}
+                    className={styles.checkout_billing_details_form_input}
+                    onChange={() => {}}
+                    /></h5>
+                </label>
+                <label className={styles.checkout_billing_details_form_label}>
+                    <h5><input 
+                    type='text'
+                    placeholder={translations[lang].billing_form.zip}
+                    // name={phoneRegister.name}
+                    // ref={phoneRegister.ref}
+                    className={styles.checkout_billing_details_form_input}
+                    onChange={() => {}}
+                    /></h5>
+                </label>
+                <label className={styles.checkout_billing_details_form_label}>
+                    <h5><input 
+                    type='text'
+                    placeholder={translations[lang].billing_form.city}
+                    // name={phoneRegister.name}
+                    // ref={phoneRegister.ref}
+                    className={styles.checkout_billing_details_form_input}
+                    onChange={() => {}}
+                    /></h5>
+                </label>
+                </>
+                : '' }
                 <div className={styles.checkout_order_notes_container}>
                     <label className={styles.checkout_billing_details_form_label}>
                         <textarea className={styles.checkout_billing_details_textarea}

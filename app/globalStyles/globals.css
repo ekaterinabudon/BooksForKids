@@ -6,6 +6,7 @@
   --color-Gray: #D8D8D8;
   --color-Light-gray: #EFEFEF;
   --color-White: #FFFFFF;
+  --color-Green: #94c822;
   --background-color-Gray: #CDCDCD; 
 }
 
@@ -376,6 +377,13 @@ a {
     height: 32px;
     width: 150px;
   }
+}
+
+.buy_now_link {
+  font-weight: 700;
+  background-color: var(--color-Accent);
+  color: var(--color-White);
+  border: 1px solid var(--color-Accent);
 }
 
 /* Fonts */

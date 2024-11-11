@@ -84,7 +84,7 @@ const Header = () => {
         className={`header_search_overlay ${searchModal ? 'overlay_active' : ''}`}
         onClick={handleCloseSearchModal}
       />
-      <div className='container header_container'>
+      <div className={`container header_container ${pathname === '/' ? 'header_container_main' : ''}`}>
         <div className='header_content'>
           <Link className='header_logo' href='/'>
             <span className='header_logo_first_letter'>B</span>

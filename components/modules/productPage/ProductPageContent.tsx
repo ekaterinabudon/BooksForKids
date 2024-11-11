@@ -25,6 +25,8 @@ import ViewedItems from '../viewedItems/ViewedItems'
 import ShareBlock from '../shareBlock/ShareBlock'
 import { useAddToCart } from '@/hooks/api/useCart'
 import { useAddToFavorites, useFavorites } from '@/hooks/api/useFavorites'
+import ProductSlider from '@/components/elements/productSlider/ProductSlider'
+import { useProductImages } from '@/hooks/useProductImages'
 
 const ProductPageContent = () => {
   const product = useUnit($currentProduct)
@@ -36,16 +38,17 @@ const ProductPageContent = () => {
   const { lang, translations } = useLang()
   const { allCurrentCartItemCount, setCount, existingItem, count } =
     useCartAction()
-  //   const images = useProductImages(product)
-  // const { handleAddProductToFavorites, isProductInFavorites } =
-  //   useFavoritesAction(product)
   const { data: favorites } = useFavorites()
   const isProductInFavorites = isItemInListOfFavorites(favorites, product._id)
 
   const isMedia520 = useMediaQuery(520)
   const isMedia700 = useMediaQuery(700)
+  const isMedia1000 = useMediaQuery(1000)
+  const isMedia1240 = useMediaQuery(1240)
 
   const { viewedItems, markAsViewed } = useViewedItems(product._id)
+
+  const images = useProductImages(product)
 
   useEffect(() => {
     markAsViewed({ category: product.category, _id: product._id })
@@ -70,7 +73,10 @@ const ProductPageContent = () => {
                 isDiscount={product.isDiscount}
               />
             </div>
-            <ProductImagesSlider />
+            <div className={styles.product_piccontainer}>
+              <ProductSlider images={images} />
+              {/* <ProductImagesSlider /> */}
+            </div>
           </div>
           <div className={styles.product_top_right}>
             <div className={styles.product_top_right_top}>
@@ -85,9 +91,10 @@ const ProductPageContent = () => {
               <h5 className={styles.product_top_right_raiting}>
                 Raiting 1 customer review
               </h5>
-              <h5 className={styles.product_top_right_description}>
-                {product.description}
-              </h5>
+              {/* <h5 className={styles.product_top_right_description}>
+                {!isMedia1000 ? `${product.description?.slice(0, 400)}...` : `${product.description?.slice(0, 200)}...`}
+              </h5> */}
+                <ProductDescription />
               <div className={styles.product_top_right_counter_container}>
                 <ProductCounter
                   className={`counter ${styles.product_top_right_counter}`}
@@ -108,7 +115,13 @@ const ProductPageContent = () => {
                   }
                   btnDisabled={allCurrentCartItemCount === +product.inStock}
                 />
+                {!isMedia1240 &&product.paymentLink&&<a href={product.paymentLink} className={`white_btn buy_now_link ${styles.product_to_cart_btn}`} target='_blank'>Buy now</a>}
               </div>
+              {isMedia1240 && product.paymentLink &&
+                <div>
+                  <a href={product.paymentLink} className={`white_btn buy_now_link ${styles.product_to_cart_btn_small}`} target='_blank'>Buy now</a>
+                </div>
+              }
             </div>
             <div className={styles.product_top_right_icon_desktop}>
               <div className={styles.product_top_right_icon_container}>

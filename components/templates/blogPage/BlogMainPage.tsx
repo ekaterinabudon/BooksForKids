@@ -2,10 +2,8 @@
 
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { IAmHomePageSectionProps } from '@/types/homePage'
 import styles from '@/styles/blogMainPage/index.module.css'
 import ViewAllLink from '@/components/elements/viewAll/ViewAllLink'
-import Card from '../../modules/card/Card'
 import BlogCard from '../../modules/blog/BlogCard'
 import SearchBarFilters from '@/components/elements/searchBarFilters/SearchBarFilters'
 import ReactPaginate from 'react-paginate'
@@ -20,7 +18,7 @@ export type ArticleItem = {
   description: string
 }
 
-type BlogAriclesSectionProps  = {
+export type BlogAriclesSectionProps  = {
   articles: ArticleItem[]
 }
 

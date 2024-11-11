@@ -12,9 +12,12 @@ import { useUnit } from 'effector-react'
 import { useTotalPriceWithDiscount } from '@/hooks/useTotalPriceWithDiscount'
 import { useState } from 'react'
 // import { $shouldShowEmpty } from '@/context/cart/state'
-import { useCart } from '@/hooks/api/useCart'
+import { ky, useCart } from '@/hooks/api/useCart'
 import CartList from '@/components/modules/cartPage/CartList'
 import { useCalculateShipping } from '@/hooks/useCalculateShipping'
+import {loadStripe} from '@stripe/stripe-js'
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY!)
 
 const CartPage = () => {
   const { data: cart, isLoading: isCartLoading } = useCart()
@@ -24,6 +27,33 @@ const CartPage = () => {
   const { newTotalWithDiscount } = useTotalPriceWithDiscount()
   // const shouldShowEmpty = useUnit($shouldShowEmpty)
   const [isCorrectCouponCode, setIsCorrectCouponCode] = useState(false)
+
+  const handleCheckout = async () => {
+    try {
+      const response = await (await ky.post("cart/checkout", {json:{ok:"ok"}})).json<{url:string}>()
+
+      if (response?.url) {
+
+        window.open(response.url)
+      }
+      console.log("TEST",response);
+      
+      
+      
+      // const { sessionId } = await response.json();
+      
+      // const stripe = await stripePromise;
+      // const { error } = await stripe?.redirectToCheckout({
+      //   sessionId,
+      // }) ?? {};
+
+      // if (error) {
+      //   console.error('Error:', error);
+      // }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <main>
@@ -37,11 +67,11 @@ const CartPage = () => {
                   <CartList />
                 </ul>
                 <div className={styles.shopping_cart_left_bottom}>
-                  <button
+                  {/* <button
                     className={`uppercase body_large white_btn ${styles.shopping_cart_updateCart_btn}`}
                   >
                     {translations[lang].cart.update_cart}
-                  </button>
+                  </button> */}
                   <div className={styles.cart_apply_coupon_container}>
                     <div className={styles.cart_apply_coupon_content}>
                       <ApplyCouponBlock
@@ -90,17 +120,20 @@ const CartPage = () => {
                       <p
                         className={`body_large ${styles.cart_shipping_bottom_total_price}`}
                       >
-                        {formatPrice(newTotalWithDiscount)}
+                        {(newTotalWithDiscount) 
+                        ? formatPrice(newTotalWithDiscount+shippingCost)
+                        : formatPrice(shippingCost)}
                       </p>
                     </div>
-                    <Link
-                      href={`/checkout`}
+                    <button
+                      // href={`/checkout`}
                       className={`uppercase body_large black_btn ${styles.cart_shipping_checkout_link} ${
                         !cart?.length ? styles.disabled : ''
                       }`}
+                      onClick={handleCheckout}
                     >
                       {translations[lang].cart.proceed_to_checkout}
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>

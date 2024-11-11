@@ -36,6 +36,11 @@ const ProductTopMobile = () => {
         handleAddToCart={() => addToCart.mutate({ ...product, count })}
         btnDisabled={allCurrentCartItemCount === +product.inStock}
       />
+      {product.paymentLink &&
+        <div>
+          <a href={product.paymentLink} className={`white_btn buy_now_link ${styles.product_to_cart_btn_mobile}`} target='_blank'>Buy now</a>
+        </div>
+      }
     </>
   )
 }

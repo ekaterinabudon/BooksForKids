@@ -11,3 +11,6 @@ import { getBlogArticles } from "@/lib/utils/api-routes";
   }
 
   export default BlogPage
+
+// http://localhost:3000/blog/postitem-123123
+// http://localhost:3000/blog/:<param_name>

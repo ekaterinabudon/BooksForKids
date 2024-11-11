@@ -6,8 +6,12 @@ import styles from '@/styles/home/index.module.css';
 import '../../../app/globalStyles/globals.css';
 
 const HomeSlide = ({ slide }: { slide: IAmSlide }) => {
-    // const isMedia1300 = useMediaQuery(800)
-    // const isMedia1000 = useMediaQuery(1000)
+    const isMedia800 = useMediaQuery(800)
+    const isMedia850 = useMediaQuery(850)
+    const isMedia920 = useMediaQuery(920)
+    const isMedia1080 = useMediaQuery(1080)
+
+    const imgSize = isMedia800 ? 500 : isMedia850 ? 200 : isMedia920 ? 230 : isMedia1080 ? 250 : 300
 
     return ( 
         <div className={styles.home_slide_content}>
@@ -29,14 +33,15 @@ const HomeSlide = ({ slide }: { slide: IAmSlide }) => {
                     <button className={styles.home_slide_btn}>{slide.btn_message}</button>
                 </Link>
             </div>
-            {/* <div className={styles.home_slide_product_container}>
+            {slide.product && <div className={styles.home_slide_product_container}>
                 <Image
                  src={slide.product}
-                 fill={true}
+                 width={imgSize}
+                 height={400}
                  alt={slide.title}
                  className={styles.home_slide_product_img}
                  />
-            </div> */}
+            </div>}
         </div>
      );
 }

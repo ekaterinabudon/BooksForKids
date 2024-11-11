@@ -16,7 +16,7 @@ import { useFavoritesAction } from '@/hooks/useFavoritesAction'
 import { setIsAddToFavorites } from '@/context/favorites'
 import styles from '@/styles/card/index.module.css'
 import { setCurrentProduct } from '@/context/goods'
-import { openNotifyMeModal } from '@/context/modals'
+import { openNotifyMeModal, showQuickViewModal } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import NotifyOfDeliveryBtn from '@/components/elements/notifyOfDelivery/NotifyOfDeliveryBtn'
 import { useAddToCart, useCart } from '@/hooks/api/useCart'
@@ -39,6 +39,7 @@ const Card = ({ item }: IAmCardProps) => {
 
   const handleShowQuickViewModal = () => {
     addOverflowHiddenToBody()
+    showQuickViewModal()
     setCurrentProduct(item)
   }
 
@@ -71,15 +72,20 @@ const Card = ({ item }: IAmCardProps) => {
             className={styles.card_top_link}
           >
             <div className={styles.card_top_container}>
+              <div className={styles.card_top_piccontainer}>
               <Image
                 src={item.images[0]}
                 alt={item.name}
                 width={500}
                 height={500}
               />
+              </div>
             </div>
             <div className={styles.card_bottom_container}>
-              <h3>{item.name}</h3>
+              <h3>
+                {/* {item.name.length < 55 ? item.name : `${item.name?.slice(0,54)}...`} */}
+                {item.name}
+              </h3>
               <div>
                 {item.isDiscount ? (
                   <h4>

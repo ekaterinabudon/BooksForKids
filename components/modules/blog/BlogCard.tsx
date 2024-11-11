@@ -2,19 +2,28 @@ import Image from 'next/image'
 import { useLang } from "@/hooks/useLang"
 import styles from '@/styles/blogCard/index.module.css'
 import { BlogCardProps } from "@/types/modules"
-// import React from 'react'
-// import { useMediaQuery } from "@/hooks/useMediaQuery"
+import Link from 'next/link'
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 
 
 const BlogCard = ({ blogcard }: BlogCardProps) => {
   const { lang, translations } = useLang()
-//   const [open, setOpen] = React.useState(false)
-//   const isMedia1100 = useMediaQuery(1300)
+  const isMedia450 = useMediaQuery(450)
+const imgWidth = isMedia450 ? 900 : 450
+const imgHeight = isMedia450 ? 450 : 233
+
+// console.log({blogcard});
+
 
 return (
     <>
         <div className={styles.blog_card_item_container}>
             <li className={styles.blog_card_item}>
+            <Link
+                href={`/blog/${blogcard._id}`}
+                // href={`/blog/${articleId}`}
+                className={styles.card_top_link}
+            >
                 <div className={styles.card_img_container}>
                     <Image
                         src={blogcard.bigimage}
@@ -45,6 +54,7 @@ return (
                         </button>
                     </div>
                 </div> */}
+                </Link>
             </li>
         </div>
     </>

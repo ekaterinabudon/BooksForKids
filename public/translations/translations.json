@@ -171,8 +171,9 @@
       "follow_us": "Follow us"
     },
     "home": {
-      "title1": "Best Russian Books For Your Kids",
-      "title2": "Order Any Russian Book",
+      "title1": "Deal of the Week",
+      "title2": "Best Russian Books For Your Kids",
+      "title3": "Order Any Russian Book",
       "btn_message1": "View Product",
       "btn_message2": "Shop Now",
       "btn_message3": "Order Book",
@@ -248,6 +249,14 @@
       "blog": "blog",
       "read_more": "Read more"
     },
+    "about_us": {
+      "about_us": "About Us",
+      "text1": "As a parent, I want my children to have the opportunity to read in their native Russian language. After all, along with the language, we absorb culture and traditions. I find it important that my children understand and feel the language of their ancestors. I believe that knowledge of Russian will make their lives more versatile and interesting. It may even provide some advantages in today’s highly competitive world.",
+      "text2": "However, when I was searching for quality Russian-language children’s books in the U.S., I encountered a problem. At that time, it was difficult to find good books in Russian, especially those that would match the age and interests of my children. Russian folk tales and stories by our beloved Russian authors often make us contemplate and reflect. Sometimes we laugh with the characters, sometimes we feel joy, and sometimes we empathize.",
+      "text3": "That//’s when the idea of creating an online store was born—one where families could easily and quickly find books in Russian that would help children develop, deepen their knowledge, and simply bring joy.",
+      "text4": "This store is a place where we’ve gathered the best Russian-language books for children, including educational and entertaining titles, classic works, and contemporary bestsellers. We want every family to be able to find what they need and easily access high-quality reading and learning materials.",
+      "text5": "Our goal is to help parents and children find the best books that will become trusted companions in learning the Russian language, filled with positive emotions and new discoveries!"
+      },
     "validation": {
       "invalid_value": "Invalid value",
       "requiredName": "Enter your name",
@@ -436,8 +445,9 @@
       "follow_us": "Мы в соцсетях"
     },
     "home": {
-      "title1": "Лучшие книги для детей на русском",
-      "title2": "Закажите любую книгу",
+      "title1": "Предложение недели",
+      "title2": "Лучшие детские книги на русском",
+      "title3": "Закажите любую книгу",
       "btn_message1": "Посмотреть",
       "btn_message2": "К покупкам",
       "btn_message3": "Заказать",
@@ -513,6 +523,14 @@
       "blog": "блог",
       "read_more": "Больше..."
     },
+    "about_us": {
+      "about_us": "О Нас",
+      "text1": "Как родитель, я хочу, чтобы у детей была возможность читать на родном русском языке. Ведь вместе с языком мы впитываем культуру, традиции и особенности, а для меня важно, чтобы дети понимали и чувствовали язык своих предков. Я верю, что знание русского языка сделает их жизнь разнообразнее и интереснее. Возможно, даже даст некоторые преимущества в современном высоко конкурентном мире.",
+      "text2": "Но при поиске качественных русскоязычных детских книг в США я столкнулась с проблемой. На тот момент было сложно найти хорошие книги на русском, особенно те, которые соответствовали бы возрасту и интересам моих детей. Русские народные сказки, сказки наших любимых русских авторов иногда заставляют нас задуматься и поразмыслить. Иногда мы смеемся с героями историй, иногда радуемся, иногда сопереживаем.",
+      "text3": "Так родилась идея создать интернет-магазин, где семьи смогут легко и быстро найти книги на русском языке, которые помогут развивать детей, углублять их знания и просто радовать.",
+      "text4": "Этот магазин — это место, где мы собрали лучшие книги для детей на русском языке, включая образовательные и развлекательные издания, классические произведения и современные бестселлеры. Мы хотим, чтобы каждая семья могла найти то, что нужно, и легко получить доступ к качественным материалам для чтения и развития.",
+      "text5": "Наша цель — помочь родителям и детям найти лучшие книги, которые станут верными спутниками в изучении русского языка с кучей положительных эмоций и новых открытий!"
+      },
     "validation": {
       "invalid_value": "Недопустимое значение",
       "requiredName": "Введите имя",
