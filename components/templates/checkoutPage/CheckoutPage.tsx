@@ -48,12 +48,12 @@ const CheckoutPage = ({
                                          {translations[lang].checkout.click_here_to_enter_code}
                                 </button>
                             </div>
-                            <div className={styles.checkout_apply_coupon_block}>
+                            {/* <div className={styles.checkout_apply_coupon_block}>
                                 <h5 className={styles.checkout_apply_coupon_block_msg}>
                                     {translations[lang].checkout.if_you_have_code}
                                 </h5>
                                 <ApplyCouponBlock setIsCorrectCouponCode={setIsCorrectCouponCode}/>
-                            </div>   
+                            </div>    */}
                         </div>
                         <div className={styles.checkout_content_bottom}>
                             <div className={styles.checkout_content_left}>

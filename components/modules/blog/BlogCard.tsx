@@ -34,7 +34,7 @@ return (
                 </div>
                 <p className={`body_medium ${styles.blogcard_date}`}>{blogcard.date}</p>
                 <h3>{blogcard.title}</h3>
-                <p className={styles.blogcard_description}>{blogcard.description?.slice(0, 100)}...</p>
+                <div className={styles.blogcard_description} dangerouslySetInnerHTML={{__html: `${blogcard.description?.slice(0, 100)}...`}}/>
                 <p className={`body_large capitalize ${styles.read_more_description_btn}`}>{translations[lang].blog.read_more}</p>
                 {/* <div
                     className={styles.read_more_description_container}

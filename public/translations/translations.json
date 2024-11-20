@@ -247,6 +247,7 @@
     },
     "blog": {
       "blog": "blog",
+      "blog_shop_now_btn": "Shop books now",
       "read_more": "Read more"
     },
     "about_us": {
@@ -521,6 +522,7 @@
     },
     "blog": {
       "blog": "блог",
+      "blog_shop_now_btn": "Посмотреть книги",
       "read_more": "Больше..."
     },
     "about_us": {

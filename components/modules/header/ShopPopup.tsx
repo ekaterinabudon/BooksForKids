@@ -6,10 +6,8 @@ import { withClickOutside } from '@/components/hocs/withClickOutside'
 import { IAmWrappedComponentProps } from '@/types/hocs'
 import { useLang } from '@/hooks/useLang'
 import ShopPopupLinkItem from './ShopPopupLinkItem'
-// import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
 import { $isAuth } from '@/context/auth/state'
 import { useFavorites } from '@/hooks/api/useFavorites'
-// import { $favorites, $favoritesFromLS } from '@/context/favorites/state'
 
 const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
   ({ open, setOpen }, ref) => {
@@ -17,7 +15,6 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
     const handleShowPopup = () => setOpen(true)
     const handleHidePopup = () => setOpen(false)
     const { data: favorites } = useFavorites()
-    // const currentFavoritesByAuth = useGoodsByAuth($favorites, $favoritesFromLS)
     const isAuth = useUnit($isAuth)
     const isMedia1300 = useMediaQuery(1300)
 
@@ -34,13 +31,13 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
       },
       {
         id: 32,
-        text: translations[lang].shop_popup.shop_carousel,
-        href: '/catalog/shop_carousel',
+        text: '',
+        href: '',
       },
       {
         id: 33,
-        text: translations[lang].shop_popup.masonry_grid,
-        href: '/catalog/shop_masonry_grid',
+        text: '',
+        href: '',
       },
     ]
 
@@ -48,7 +45,7 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
       {
         id: 34,
         text: translations[lang].shop_popup.bestseller,
-        href: '/catalog/shop_bestsellers',
+        href: '/catalog?sort=bestseller',
       },
       {
         id: 35,
@@ -58,12 +55,12 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
       {
         id: 36,
         text: translations[lang].shop_popup.out_of_stock,
-        href: '/catalog/shop_out_of_stock',
+        href: '/catalog/shop_full_width?inStock=false',
       },
       {
         id: 37,
         text: translations[lang].shop_popup.new,
-        href: '/catalog/shop_new',
+        href: '/catalog/shop_full_width?inStock=true&sort=new',
       },
     ]
 
@@ -72,11 +69,6 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
         id: 38,
         text: translations[lang].shop_popup.cart,
         href: '/cart',
-      },
-      {
-        id: 39,
-        text: translations[lang].shop_popup.checkout,
-        href: '/checkout',
       },
       {
         id: 40,
@@ -89,6 +81,11 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
           !!favorites?.length ? favorites.length : ''
         }`,
         href: '/wishlist',
+      },
+      {
+        id: 41,
+        text: '',
+        href: '',
       },
     ]
 

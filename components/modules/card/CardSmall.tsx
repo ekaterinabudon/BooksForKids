@@ -53,7 +53,7 @@ const SmallCard = ({ item }: IAmCardProps) => {
     openNotifyMeModal()
     setCurrentProduct(item)
   }
-  
+
   return (
     <>
       <li className={styles.list_item}>

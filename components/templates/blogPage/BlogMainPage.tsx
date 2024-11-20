@@ -11,6 +11,7 @@ import ReactPaginate from 'react-paginate'
 export type ArticleItem = {
   _id: string
   category: string
+  currentDate: string,
   currentMonth: string
   currentYear: number
   title: string
@@ -40,7 +41,7 @@ return (
             <div className={styles.blog_right_container}>
             <ul className={styles.blog_articles_list}>
               {articles.map((item) => (
-                <BlogCard key={item._id} blogcard={{...item,date: `${item.currentMonth} ${item.currentYear}`}} />
+                <BlogCard key={item._id} blogcard={{...item,date: `${item.currentMonth} ${item.currentYear}, ${item.currentDate}`}} />
               ))}
             </ul>
             </div>

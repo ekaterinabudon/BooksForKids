@@ -30,7 +30,7 @@ const CartPage = () => {
 
   const handleCheckout = async () => {
     try {
-      const response = await (await ky.post("cart/checkout", {json:{ok:"ok"}})).json<{url:string}>()
+      const response = await (await ky.post("cart/checkout", {json:{shippingCost}})).json<{url:string}>()
 
       if (response?.url) {
 
@@ -66,20 +66,20 @@ const CartPage = () => {
                 <ul className={styles.shopping_cart_list}>
                   <CartList />
                 </ul>
-                <div className={styles.shopping_cart_left_bottom}>
+                {/* <div className={styles.shopping_cart_left_bottom}> */}
                   {/* <button
                     className={`uppercase body_large white_btn ${styles.shopping_cart_updateCart_btn}`}
                   >
                     {translations[lang].cart.update_cart}
                   </button> */}
-                  <div className={styles.cart_apply_coupon_container}>
+                  {/* <div className={styles.cart_apply_coupon_container}>
                     <div className={styles.cart_apply_coupon_content}>
                       <ApplyCouponBlock
                         setIsCorrectCouponCode={setIsCorrectCouponCode}
                       />
                     </div>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </div>
               <div className={styles.shopping_cart_content_right}>
                 <h2 className={styles.cart_totals_title}>
