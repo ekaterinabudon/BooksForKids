@@ -8,7 +8,7 @@ import ProductCounter from '../card/ProductCounter'
 import SKU from '../card/SKU'
 import styles from '@/styles/product/index.module.css'
 // import { useFavoritesAction } from '@/hooks/useFavoritesAction'
-import ProductImagesSlider from './ProductImagesSlider'
+// import ProductImagesSlider from './ProductImagesSlider'
 import { useUnit } from 'effector-react'
 import AddInfoList from './AddInfoList'
 import CardActionBtn from '@/components/elements/cardActions/CardActionBtn'
@@ -43,7 +43,7 @@ const ProductPageContent = () => {
 
   const isMedia520 = useMediaQuery(520)
   const isMedia700 = useMediaQuery(700)
-  const isMedia1000 = useMediaQuery(1000)
+  // const isMedia1000 = useMediaQuery(1000)
   const isMedia1240 = useMediaQuery(1240)
 
   const { viewedItems, markAsViewed } = useViewedItems(product._id)
@@ -88,13 +88,13 @@ const ProductPageContent = () => {
               ) : (
                 ''
               )}
-              <h5 className={styles.product_top_right_raiting}>
+              {/* <h5 className={styles.product_top_right_raiting}>
                 Raiting 1 customer review
-              </h5>
+              </h5> */}
               {/* <h5 className={styles.product_top_right_description}>
                 {!isMedia1000 ? `${product.description?.slice(0, 400)}...` : `${product.description?.slice(0, 200)}...`}
               </h5> */}
-                <ProductDescription />
+              <ProductDescription />
               <div className={styles.product_top_right_counter_container}>
                 <ProductCounter
                   className={`counter ${styles.product_top_right_counter}`}
@@ -115,13 +115,27 @@ const ProductPageContent = () => {
                   }
                   btnDisabled={allCurrentCartItemCount === +product.inStock}
                 />
-                {!isMedia1240 &&product.paymentLink&&<a href={product.paymentLink} className={`white_btn buy_now_link ${styles.product_to_cart_btn}`} target='_blank'>Buy now</a>}
+                {!isMedia1240 && product.paymentLink && (
+                  <a
+                    href={product.paymentLink}
+                    className={`white_btn buy_now_link ${styles.product_to_cart_btn}`}
+                    target='_blank'
+                  >
+                    Buy now
+                  </a>
+                )}
               </div>
-              {isMedia1240 && product.paymentLink &&
+              {isMedia1240 && product.paymentLink && (
                 <div>
-                  <a href={product.paymentLink} className={`white_btn buy_now_link ${styles.product_to_cart_btn_small}`} target='_blank'>Buy now</a>
+                  <a
+                    href={product.paymentLink}
+                    className={`white_btn buy_now_link ${styles.product_to_cart_btn_small}`}
+                    target='_blank'
+                  >
+                    Buy now
+                  </a>
                 </div>
-              }
+              )}
             </div>
             <div className={styles.product_top_right_icon_desktop}>
               <div className={styles.product_top_right_icon_container}>

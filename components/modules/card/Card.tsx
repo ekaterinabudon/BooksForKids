@@ -27,7 +27,6 @@ const Card = ({ item }: IAmCardProps) => {
   const isMedia1100 = useMediaQuery(1100)
   const { getCanAddToCart } = useCartAction()
 
-
   const { data: cart } = useCart()
   const { data: favorites } = useFavorites()
   const isProductInCart = isItemInList(cart, item._id)
@@ -73,12 +72,12 @@ const Card = ({ item }: IAmCardProps) => {
           >
             <div className={styles.card_top_container}>
               <div className={styles.card_top_piccontainer}>
-              <Image
-                src={item.images[0]}
-                alt={item.name}
-                width={500}
-                height={500}
-              />
+                <Image
+                  src={item.images[0]}
+                  alt={item.name}
+                  width={300}
+                  height={300}
+                />
               </div>
             </div>
             <div className={styles.card_bottom_container}>
@@ -102,8 +101,7 @@ const Card = ({ item }: IAmCardProps) => {
               </div>
             </div>
           </Link>
-          {
-          (+item.inStock && isProductInCart) ? (
+          {+item.inStock && isProductInCart ? (
             <div className={styles.card_to_cart_btn_container_added}>
               <AddToCartBtn
                 text={
@@ -116,16 +114,16 @@ const Card = ({ item }: IAmCardProps) => {
                 btnDisabled={!getCanAddToCart(item._id)}
               />
             </div>
-          ) : (!(+item.inStock) && isProductInCart) ? (
+          ) : !+item.inStock && isProductInCart ? (
             <div className={styles.card_to_cart_btn_container_added}>
-            <AddToCartBtn
-              text={translations[lang].card.in_cart}
-              className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
-              handleAddToCart={() => addToCart.mutate(item)}
-              btnDisabled={!getCanAddToCart(item._id)}
-            />
-        </div>
-        ) : (!(+item.inStock) && !isProductInCart) ? (
+              <AddToCartBtn
+                text={translations[lang].card.in_cart}
+                className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
+                handleAddToCart={() => addToCart.mutate(item)}
+                btnDisabled={!getCanAddToCart(item._id)}
+              />
+            </div>
+          ) : !+item.inStock && !isProductInCart ? (
             <div className={styles.card_to_cart_btn_container_added}>
               <NotifyOfDeliveryBtn
                 text={translations[lang].wishlist.notify_of_delivery}
@@ -136,26 +134,27 @@ const Card = ({ item }: IAmCardProps) => {
           ) : (
             <div className={styles.card_to_cart_btn_container}>
               <AddToCartBtn
-              text={translations[lang].card.to_cart}
-              className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
-              handleAddToCart={() => addToCart.mutate(item)}
-              btnDisabled={!getCanAddToCart(item._id)}
-            />
-            </div>
-          )
-        }
-          {!isMedia1100 && (
-              <div className={styles.card_actions}>
-              {+item.inStock ? <CardActionBtn
-                text={translations[lang].card.add_to_cart}
-                iconClass='card_action_btn_add_to_cart'
-                callback={addAndGoToCartActionBtn}
-              /> :  (
-                <CardActionBtn
-                text={translations[lang].wishlist.notify_of_delivery}
-                iconClass='card_action_btn_add_to_cart'
-                callback={handleOpenNotifyMeModal}
+                text={translations[lang].card.to_cart}
+                className={`${styles.card_cart_btn} ${isProductInCart ? styles.card_cart_btn_added : ''}`}
+                handleAddToCart={() => addToCart.mutate(item)}
+                btnDisabled={!getCanAddToCart(item._id)}
               />
+            </div>
+          )}
+          {!isMedia1100 && (
+            <div className={styles.card_actions}>
+              {+item.inStock ? (
+                <CardActionBtn
+                  text={translations[lang].card.add_to_cart}
+                  iconClass='card_action_btn_add_to_cart'
+                  callback={addAndGoToCartActionBtn}
+                />
+              ) : (
+                <CardActionBtn
+                  text={translations[lang].wishlist.notify_of_delivery}
+                  iconClass='card_action_btn_add_to_cart'
+                  callback={handleOpenNotifyMeModal}
+                />
               )}
               <CardActionBtn
                 text={translations[lang].card.quick_view}

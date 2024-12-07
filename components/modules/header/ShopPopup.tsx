@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { forwardRef, useState } from 'react'
+import { forwardRef } from 'react'
 import { useUnit } from 'effector-react'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { withClickOutside } from '@/components/hocs/withClickOutside'
@@ -18,34 +18,34 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
     const isAuth = useUnit($isAuth)
     const isMedia1300 = useMediaQuery(1300)
 
-    const shopTypesLinks = [
-      {
-        id: 30,
-        text: translations[lang].shop_popup.shop_full_width,
-        href: '/catalog/shop_full_width',
-      },
-      {
-        id: 31,
-        text: translations[lang].shop_popup.shop_with_sidebar,
-        href: '/catalog/shop_with_sidebar',
-      },
-      {
-        id: 32,
-        text: '',
-        href: '',
-      },
-      {
-        id: 33,
-        text: '',
-        href: '',
-      },
-    ]
+    // const shopTypesLinks = [
+    //   {
+    //     id: 30,
+    //     text: translations[lang].shop_popup.shop_full_width,
+    //     href: '/catalog/shop_full_width',
+    //   },
+    //   {
+    //     id: 31,
+    //     text: translations[lang].shop_popup.shop_with_sidebar,
+    //     href: '/catalog/shop_with_sidebar',
+    //   },
+    //   {
+    //     id: 32,
+    //     text: '',
+    //     href: '',
+    //   },
+    //   {
+    //     id: 33,
+    //     text: '',
+    //     href: '',
+    //   },
+    // ]
 
     const singleProduct = [
       {
         id: 34,
         text: translations[lang].shop_popup.bestseller,
-        href: '/catalog?sort=bestseller',
+        href: '/catalog/shop_full_width?sort=bestseller',
       },
       {
         id: 35,
@@ -53,14 +53,9 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
         href: '/catalog/shop_full_width?isDiscount=true',
       },
       {
-        id: 36,
-        text: translations[lang].shop_popup.out_of_stock,
-        href: '/catalog/shop_full_width?inStock=false',
-      },
-      {
         id: 37,
         text: translations[lang].shop_popup.new,
-        href: '/catalog/shop_full_width?inStock=true&sort=new',
+        href: '/catalog/shop_full_width?sort=new',
       },
     ]
 
@@ -82,32 +77,27 @@ const ShopPopup = forwardRef<HTMLDivElement, IAmWrappedComponentProps>(
         }`,
         href: '/wishlist',
       },
-      {
-        id: 41,
-        text: '',
-        href: '',
-      },
     ]
 
     return (
       <div className='shop_popup' ref={ref}>
         <Link
           className='link_nav'
-          href='/catalog'
+          href='/catalog/shop_full_width'
           onMouseEnter={handleShowPopup}
         >
           {translations[lang].header.shop_link}
         </Link>
         {!isMedia1300 && open && (
           <div className='shop_popup_wrapper' onMouseLeave={handleHidePopup}>
-            <ul className='shop_popup_columns body_medium'>
+            {/* <ul className='shop_popup_columns body_medium'>
               <p className='shop_popup_headings uppercase'>
                 {translations[lang].shop_popup.shop_types}
               </p>
               {shopTypesLinks.map((item) => (
                 <ShopPopupLinkItem key={item.text} item={item} />
               ))}
-            </ul>
+            </ul> */}
             <ul className='shop_popup_columns body_medium with_left_border'>
               <p className='shop_popup_headings uppercase'>
                 {translations[lang].shop_popup.single_product}

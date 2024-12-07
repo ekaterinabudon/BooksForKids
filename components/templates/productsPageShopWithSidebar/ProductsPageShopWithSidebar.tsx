@@ -11,7 +11,6 @@ import CatalogFiltersFullWidth from '@/components/modules/catalogFilters/Catalog
 import FilterBtn from '@/components/modules/catalogFilters/FilterBtn'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import React from 'react'
-// import { setCatalogCategoryOptions } from "@/context/catalog";
 
 const ProductsPageShopWithSidebar = ({
   searchParams,
@@ -34,28 +33,36 @@ const ProductsPageShopWithSidebar = ({
     handleApplyFiltersBySort,
     handleApplyFilterOnSale,
     handleApplyFilterInStock,
-  } = useProductFilters(searchParams, pageName, pageName === 'catalog/shop_with_sidebar')
+  } = useProductFilters(
+    searchParams,
+    pageName,
+    pageName === 'catalog/shop_with_sidebar'
+  )
 
   return (
     <div className={`container ${styles.sidebar_shop_container}`}>
-        {!isMedia800 ? 
-          <h1>{translations[lang].home.shop_the_latest}</h1>
-          : <h1>{translations[lang].home.shop}</h1>
-        }
-      {isMedia1300 &&
-        <div /*className={styles.sidebar_filter_block}*/>
-        <FilterBtn callback={handleClick} className={styles.sidebar_filter_btn}/>
-      {open && (
-        <CatalogFiltersFullWidth
-          handleApplyFiltersWithPrice={handleApplyFiltersWithPrice}
-          handleApplyFiltersWithTypes={handleApplyFiltersWithTypes}
-          handleApplyFiltersBySort={handleApplyFiltersBySort}
-          handleApplyFilterOnSale={handleApplyFilterOnSale}
-          handleApplyFilterInStock={handleApplyFilterInStock}
-        />
+      {!isMedia800 ? (
+        <h1>{translations[lang].home.shop_the_latest}</h1>
+      ) : (
+        <h1>{translations[lang].home.shop}</h1>
       )}
-      </div>
-      }
+      {isMedia1300 && (
+        <div /*className={styles.sidebar_filter_block}*/>
+          <FilterBtn
+            callback={handleClick}
+            className={styles.sidebar_filter_btn}
+          />
+          {open && (
+            <CatalogFiltersFullWidth
+              handleApplyFiltersWithPrice={handleApplyFiltersWithPrice}
+              handleApplyFiltersWithTypes={handleApplyFiltersWithTypes}
+              handleApplyFiltersBySort={handleApplyFiltersBySort}
+              handleApplyFilterOnSale={handleApplyFilterOnSale}
+              handleApplyFilterInStock={handleApplyFilterInStock}
+            />
+          )}
+        </div>
+      )}
       <div className={styles.sidebar_shop_content}>
         <div className={styles.sidebar_container}>
           <SearchBarFilters />

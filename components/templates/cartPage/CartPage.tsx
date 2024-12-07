@@ -1,23 +1,17 @@
 'use client'
-import CalcShippingBlock from '@/components/modules/cartPage/calcShippingBlock/CalcShippingBlock'
-import UpdateTotalsBtn from '@/components/modules/cartPage/updateTotalsBtn/UpdateTotalsBtn'
-import ApplyCouponBlock from '@/components/elements/applyCouponBlock/ApplyCouponBlock'
 import { useLang } from '@/hooks/useLang'
 import { useTotalPrice } from '@/hooks/useTotalPrice'
 import { formatPrice } from '@/lib/utils/common'
 import styles from '@/styles/cartPage/index.module.css'
-import Link from 'next/link'
 import EmptyPageContent from '@/components/modules/emptyPageContent/EmptyPageContent'
-import { useUnit } from 'effector-react'
 import { useTotalPriceWithDiscount } from '@/hooks/useTotalPriceWithDiscount'
-import { useState } from 'react'
 // import { $shouldShowEmpty } from '@/context/cart/state'
 import { ky, useCart } from '@/hooks/api/useCart'
 import CartList from '@/components/modules/cartPage/CartList'
 import { useCalculateShipping } from '@/hooks/useCalculateShipping'
-import {loadStripe} from '@stripe/stripe-js'
+// import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY!)
+// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY!)
 
 const CartPage = () => {
   const { data: cart, isLoading: isCartLoading } = useCart()
@@ -26,22 +20,20 @@ const CartPage = () => {
   const { shippingCost } = useCalculateShipping()
   const { newTotalWithDiscount } = useTotalPriceWithDiscount()
   // const shouldShowEmpty = useUnit($shouldShowEmpty)
-  const [isCorrectCouponCode, setIsCorrectCouponCode] = useState(false)
 
   const handleCheckout = async () => {
     try {
-      const response = await (await ky.post("cart/checkout", {json:{shippingCost}})).json<{url:string}>()
+      const response = await (
+        await ky.post('cart/checkout', { json: { shippingCost } })
+      ).json<{ url: string }>()
 
       if (response?.url) {
-
         window.open(response.url)
       }
-      console.log("TEST",response);
-      
-      
-      
+      console.log('TEST', response)
+
       // const { sessionId } = await response.json();
-      
+
       // const stripe = await stripePromise;
       // const { error } = await stripe?.redirectToCheckout({
       //   sessionId,
@@ -51,9 +43,9 @@ const CartPage = () => {
       //   console.error('Error:', error);
       // }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error)
     }
-  };
+  }
 
   return (
     <main>
@@ -67,12 +59,12 @@ const CartPage = () => {
                   <CartList />
                 </ul>
                 {/* <div className={styles.shopping_cart_left_bottom}> */}
-                  {/* <button
+                {/* <button
                     className={`uppercase body_large white_btn ${styles.shopping_cart_updateCart_btn}`}
                   >
                     {translations[lang].cart.update_cart}
                   </button> */}
-                  {/* <div className={styles.cart_apply_coupon_container}>
+                {/* <div className={styles.cart_apply_coupon_container}>
                     <div className={styles.cart_apply_coupon_content}>
                       <ApplyCouponBlock
                         setIsCorrectCouponCode={setIsCorrectCouponCode}
@@ -120,9 +112,9 @@ const CartPage = () => {
                       <p
                         className={`body_large ${styles.cart_shipping_bottom_total_price}`}
                       >
-                        {(newTotalWithDiscount) 
-                        ? formatPrice(newTotalWithDiscount+shippingCost)
-                        : formatPrice(shippingCost)}
+                        {newTotalWithDiscount
+                          ? formatPrice(newTotalWithDiscount + shippingCost)
+                          : formatPrice(shippingCost)}
                       </p>
                     </div>
                     <button
