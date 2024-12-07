@@ -38,8 +38,8 @@ const HomeSlide = ({ slide }: { slide: IAmSlide }) => {
           <h2 className={styles.price}>{slide.price}</h2>
         </div>
         <Link
-          // href={slide.href}
-          href='/catalog/shop_full_width'
+          href={slide.href}
+          // href='/catalog/shop_full_width'
           className={styles.home_slide_btn_container}
         >
           <button className={styles.home_slide_btn}>{slide.btn_message}</button>
