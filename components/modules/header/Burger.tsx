@@ -47,11 +47,11 @@ const Burger = () => {
           text: translations[lang].burger_menu.blog_link,
           href: '/blog',
       },
-      {
-          id: 6,
-          text: translations[lang].burger_menu.help_link,
-          href: '/help',
-      },
+      // {
+      //     id: 6,
+      //     text: translations[lang].burger_menu.help_link,
+      //     href: '/help',
+      // },
       {
           id: 7,
           text: translations[lang].burger_menu.contact_link,

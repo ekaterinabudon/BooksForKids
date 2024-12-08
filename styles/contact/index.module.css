@@ -1,0 +1,29 @@
+.contact_container {
+    width: 657px !important;
+    text-align: center;
+    margin-top: 96px;
+    margin-bottom: 39px;
+}
+
+.contact_container p {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+    .contact_container {
+        width: 450px !important;
+        margin-top: 39px;
+        font-size: 20px !important;
+        text-align: flex-start;
+    }
+}
+
+@media (max-width: 470px) {
+    .contact_container {
+        width: 288px !important;
+    }
+}
+
+.contact_page_link {
+    color: var(--color-Dark-gray);
+}
