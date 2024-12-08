@@ -9,9 +9,9 @@ import { useTotalPriceWithDiscount } from '@/hooks/useTotalPriceWithDiscount'
 import { ky, useCart } from '@/hooks/api/useCart'
 import CartList from '@/components/modules/cartPage/CartList'
 import { useCalculateShipping } from '@/hooks/useCalculateShipping'
-// import { loadStripe } from '@stripe/stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 
-// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY!)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUB_KEY!)
 
 const CartPage = () => {
   const { data: cart, isLoading: isCartLoading } = useCart()
@@ -25,23 +25,24 @@ const CartPage = () => {
     try {
       const response = await (
         await ky.post('cart/checkout', { json: { shippingCost } })
-      ).json<{ url: string }>()
+      ).json<{ url: string; sessionId: string }>()
 
       if (response?.url) {
         window.open(response.url)
       }
-      console.log('TEST', response)
+      // console.log('TEST', response)
 
-      // const { sessionId } = await response.json();
+      // const { sessionId } = await response.json()
 
-      // const stripe = await stripePromise;
-      // const { error } = await stripe?.redirectToCheckout({
-      //   sessionId,
-      // }) ?? {};
+      const stripe = await stripePromise
+      const { error } =
+        (await stripe?.redirectToCheckout({
+          sessionId: response.sessionId,
+        })) ?? {}
 
-      // if (error) {
-      //   console.error('Error:', error);
-      // }
+      if (error) {
+        console.error('Error:', error)
+      }
     } catch (error) {
       console.error('Error:', error)
     }

@@ -1,8 +1,8 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import React, { CSSProperties, useRef, useState } from 'react'
+import React, { CSSProperties } from 'react'
 import { Pagination, Autoplay, FreeMode, Thumbs } from 'swiper/modules'
-import { Swiper as SwiperType } from 'swiper/types'
+// import { Swiper as SwiperType } from 'swiper/types'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -22,7 +22,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const HomeSlider = () => {
   const { lang, translations } = useLang()
-  const [thumbsSwiper, setThumbsSwiper] = useState(null)
+  // const [thumbsSwiper, setThumbsSwiper] = useState(null)
   const isMedia800 = useMediaQuery(800)
 
   const slides = [
@@ -92,7 +92,7 @@ const HomeSlider = () => {
           modules={[Pagination, Autoplay, FreeMode, Thumbs]}
           className={styles.home_swiper_slider}
           loop={true}
-          thumbs={{ swiper: thumbsSwiper }}
+          // thumbs={{ swiper: thumbsSwiper }}
           autoplay={{
             delay: 10000,
           }}
