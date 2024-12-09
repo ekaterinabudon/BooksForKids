@@ -42,7 +42,7 @@ export const POST = async (req: Request) => {
                 name: i!.name,
                 description: i!.description.slice(0, 50) + '...',
               },
-              unit_amount: +total.toFixed(2) * 100,
+              unit_amount: Math.round(+total.toFixed(2) * 100),
             },
             quantity: 1,
           }
