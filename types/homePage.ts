@@ -8,6 +8,7 @@ export interface IAmSlide {
     price?: string
     product?: StaticImageData
     btn_message: string
+    href: string
 }
 
 export interface IAmHomePageSectionProps {
