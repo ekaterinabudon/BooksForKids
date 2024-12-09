@@ -114,7 +114,7 @@ const WishlistItem = ({ item }: { item: FavoriteItem }) => {
                 <br />
                 <span
                   className={styles.wishlist_item_price}
-                >{`${formatPrice(+item.price * (1 - +item.isDiscount / 100))}`}</span>
+                >{`${formatPrice(+item.price * (1 - +item.isDiscount / 100))})`}</span>
               </h5>
             ) : (
               <h5 className={styles.wishlist_item_price}>

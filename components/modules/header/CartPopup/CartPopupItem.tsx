@@ -9,7 +9,6 @@ import ProductCounter from '../../card/ProductCounter'
 import { useRemoveFromCart } from '@/hooks/api/useCart'
 import { CartItem } from '@/types/cart'
 
-
 const CartPopupItem = ({ item }: { item: CartItem }) => {
   const { lang, translations } = useLang()
   const deleteItem = useRemoveFromCart()
@@ -62,6 +61,4 @@ const CartPopupItem = ({ item }: { item: CartItem }) => {
   )
 }
 
-
 export default CartPopupItem
-
