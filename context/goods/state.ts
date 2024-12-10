@@ -9,6 +9,8 @@ import {
   goods,
   loadViewedItemsFx,
   getProductsFirstPageFx,
+  loadProductBySearchFx,
+  resetProductBySearch,
 } from '.'
 
 const goodsStoreInstance = (effect: Effect<void, [], Error>) =>
@@ -33,3 +35,8 @@ export const $products = goods
 export const $viewedItems = goods
   .createStore<IAmProducts>({} as IAmProducts)
   .on(loadViewedItemsFx.done, (_, { result }) => result)
+
+export const $productsBySearch = goods
+  .createStore<IAmProducts>({} as IAmProducts)
+  .on(loadProductBySearchFx.done, (_, { result }) => result)
+  .on(resetProductBySearch, () => ({ count: 0, items: [] }))

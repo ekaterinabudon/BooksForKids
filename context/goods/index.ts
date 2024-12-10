@@ -19,8 +19,22 @@ export const loadOneProduct = goods.createEvent<IAmLoadOneProductFx>()
 export const loadProductsByFilter =
   goods.createEvent<IAmLoadProductsByFilterFx>()
 export const loadViewedItems = goods.createEvent<IAmLoadViewedItemsFx>()
+export const loadProductBySearch = goods.createEvent<{ search: string }>()
+export const resetProductBySearch = goods.createEvent()
 
-export const loadProductsByFilterFx = createEffect(
+export const loadProductBySearchFx = goods.createEffect(
+  async ({ search }: { search: string }) => {
+    try {
+      const { data } = await api.post('/api/goods/search', { search })
+
+      return data
+    } catch (error) {
+      toast.error((error as Error).message)
+    }
+  }
+)
+
+export const loadProductsByFilterFx = goods.createEffect(
   async ({
     limit,
     offset,
@@ -41,7 +55,7 @@ export const loadProductsByFilterFx = createEffect(
   }
 )
 
-export const loadOneProductFx = createEffect(
+export const loadOneProductFx = goods.createEffect(
   async ({ productId, category }: IAmLoadOneProductFx) => {
     try {
       const { data } = await api.post('/api/goods/oneProduct', {
@@ -60,13 +74,13 @@ export const loadOneProductFx = createEffect(
   }
 )
 
-export const getProductsFirstPageFx = createEffect(async () => {
+export const getProductsFirstPageFx = goods.createEffect(async () => {
   const { data } = await api.get('/api/goods/homePageGoods')
 
   return data
 })
 
-export const loadViewedItemsFx = createEffect(
+export const loadViewedItemsFx = goods.createEffect(
   async ({ payload }: IAmLoadViewedItemsFx) => {
     try {
       const { data } = await api.post('/api/goods/viewed', { payload })

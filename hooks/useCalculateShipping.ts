@@ -18,13 +18,13 @@ export const useCalculateShipping = () => {
 
   if (weightPounds <= 1) {
     shippingCost = 4.63
-  } else if (weightPounds > 1 && weightPounds <=2) {
+  } else if (weightPounds > 1 && weightPounds <= 2) {
     shippingCost = 5.38
-  } else if (weightPounds > 2 && weightPounds <=3) {
+  } else if (weightPounds > 2 && weightPounds <= 3) {
     shippingCost = 6.13
-  } else if (weightPounds > 3 && weightPounds <=4) {
+  } else if (weightPounds > 3 && weightPounds <= 4) {
     shippingCost = 6.88
-  } else if (weightPounds > 4 && weightPounds <=5) {
+  } else if (weightPounds > 4 && weightPounds <= 5) {
     shippingCost = 7.63
   } else {
     shippingCost = 8.38

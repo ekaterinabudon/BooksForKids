@@ -23,25 +23,22 @@ export async function POST(req: Request) {
     }
 
     const getGoodsByCollection = async (collection: string) => {
-      const [goodsByType, goodsByCategory, goodsByName] =
+      const [goodsByName, goodsByAuthor] =
         await Promise.allSettled([
-          getFilteredGoods('type', collection),
-          getFilteredGoods('category', collection),
           getFilteredGoods('name', collection),
+          getFilteredGoods('characteristics.author', collection),
         ])
 
       if (
-        goodsByType.status !== 'fulfilled' ||
-        goodsByCategory.status !== 'fulfilled' ||
-        goodsByName.status !== 'fulfilled'
+        goodsByName.status !== 'fulfilled' ||
+        goodsByAuthor.status !== 'fulfilled'
       ) {
         return []
       }
 
       return [
-        ...goodsByType.value,
-        ...goodsByCategory.value,
         ...goodsByName.value,
+        ...goodsByAuthor.value,
       ]
     }
 

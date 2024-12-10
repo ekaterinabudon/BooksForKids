@@ -4,12 +4,14 @@ import {
   getProductsFirstPageFx,
   loadOneProduct,
   loadOneProductFx,
+  loadProductBySearch,
+  loadProductBySearchFx,
   loadProductsByFilter,
   loadProductsByFilterFx,
   loadViewedItems,
   loadViewedItemsFx,
 } from '.'
-import { $currentProduct, $products, $viewedItems } from './state'
+import { $currentProduct, $products, $productsBySearch, $viewedItems } from './state'
 import { Gate } from 'effector-react'
 
 const goodsSampleInstance = (
@@ -42,4 +44,11 @@ sample({
   source: $viewedItems,
   fn: (_, data) => data,
   target: loadViewedItemsFx,
+})
+
+sample({
+  clock: loadProductBySearch,
+  source: $productsBySearch,
+  fn: (_, data) => data,
+  target: loadProductBySearchFx,
 })
